@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ログ一覧</title>
+	<style>
+		td {
+			text-aline: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>ログイン履歴</h1>
+	<hr>
+	<table border="1">
+		<tr>
+			<th>番号</th>
+			<th>ログインユーザー</th>
+			<th>ログイン時刻</th>
+		</tr>
+		<!-- thymeleafの機能(拡張for) -->
+		<tr th:each="log : ${logs}">
+			<td th:text="${log.id}"></td>
+			<td th:text="${log.user.id}"></td>
+			<td th:text="${log.logdate}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

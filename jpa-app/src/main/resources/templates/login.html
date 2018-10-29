@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ログイン</title>
+<style>
+td {
+	text-align: center;
+}
+
+.error {
+	color: red;
+}
+
+</style>
+</head>
+
+<body>
+	<h1>ログイン</h1>
+	<hr />
+	<!-- th:objectに${loginForm}を追加したためLoginFromクラス
+        のインスタンスをformにマッピングすることができる
+     -->
+	<form method="post" action="/login" th:object="${loginForm}">
+		<p class="error" th:text="${message}">ｴﾗｰｰｰｰｰｰｰｰｰｰｰｰｰｰ</p>
+
+		<table>
+			<tr>
+				<td>ユーザー</td>
+				<!-- クラスのプロパティ名を指定 -->
+				<td><input type="text" th:field="*{id}" /></td>
+				<td>
+					<p class="error" th:errors="*{id}">エラー出力</p>
+				</td>
+			</tr>
+			<tr>
+				<td>パスワード</td>
+				<td><input type="text" th:field="*{pass}" size="20" /></td>
+				<td>
+					<p class="error" th:errors="*{pass}">エラー出力</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="OK" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

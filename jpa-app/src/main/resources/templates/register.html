@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>登録画面</title>
+	<style>
+		.success {
+	color: green;
+}
+</style>
+</head>
+
+<body>
+	<h1>ユーザー登録</h1>
+	<hr>
+	<form method="post" action="/register" th:object="${registForm}">
+
+		<h2 class="success" th:text="${message}">おｋ</h2>
+		<table border="1">
+			<tr>
+				<td>君の名は</td>
+				<!-- クラスのプロパティ名を指定 -->
+				<td><input type="text" th:field="*{id}" /></td>
+				<td>
+					<p class="error" th:errors="*{id}">エラー出力</p>
+				</td>
+			</tr>
+			<tr>
+				<td>真の名は</td>
+				<!-- クラスのプロパティ名を指定 -->
+				<td><input type="text" th:field="*{name}" /></td>
+				<td>
+					<p class="error" th:errors="*{name}">エラー出力</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td>平和－ド</td>
+				<td><input type="password" th:field="*{pass}" size="20" /></td>
+				<td>
+					<p class="error" th:errors="*{pass}">エラー出力</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="OK" /></td>
+			</tr>
+
+		</table>
+	</form>
+</body>
+
+</html>
